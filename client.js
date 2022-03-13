@@ -1,4 +1,4 @@
-const HyperswarmProxyClient = require('hyperswarm-proxy/client')
+const BitswarmProxyClient = require('@web4/bitswarm-proxy/client')
 const websocket = require('websocket-stream')
 
 const DEFAULT_PORT = '4977' // HYPR on a cellphone keypad
@@ -6,7 +6,7 @@ const LOCAL_PROXY = `ws://localhost:${DEFAULT_PORT}`
 const DEFAULT_PROXY = [LOCAL_PROXY]
 const DEFAULT_RECONNECT_DELAY = 1000
 
-class HyperswarmProxyWSClient extends HyperswarmProxyClient {
+class BitswarmProxyWSClient extends BitswarmProxyClient {
   constructor (opts = {}) {
     super(opts)
 
@@ -55,4 +55,4 @@ class HyperswarmProxyWSClient extends HyperswarmProxyClient {
   }
 }
 
-module.exports = HyperswarmProxyWSClient
+module.exports = BitswarmProxyWSClient

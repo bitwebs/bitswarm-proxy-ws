@@ -1,43 +1,43 @@
-# hyperswarm-proxy-ws
-Proxy hyperswarm connections over websockets with auto-reconnect logic
+# bitswarm-proxy-ws
+Proxy bitswarm connections over websockets with auto-reconnect logic
 
 ```
-npm -s hyperswarm-proxy-ws
+npm -s @web4/bitswarm-proxy-ws
 ```
 
-Uses the [hyperswarm-proxy](https://github.com/RangerMauve/hyperswarm-proxy) module.
+Uses the [bitswarm-proxy](https://github.com/bitwebs/bitswarm-proxy) module.
 
 ## Example
 
 ```js
 
-const HyperswarmServer = require('hyperswarm-proxy-ws/server')
+const BitswarmServer = require('@web4/bitswarm-proxy-ws/server')
 
 // Initialize the proxy server
-// Also specify any options for hyperswarm here
-// https://github.com/hyperswarm/hyperswarm
-const server = new HyperswarmServer()
+// Also specify any options for bitswarm here
+// https://github.com/bitwebs/bitswarm
+const server = new BitswarmServer()
 
 // Start listening on clients via websocket protocol
 server.listen(3472)
 
 
-const HyperswarmClient = require('hyperswarm-proxy-ws/client')
+const BitswarmClient = require('@web4/bitswarm-proxy-ws/client')
 
-// Initialize a proxied hyperswarm
-// Also specify any options for hyperswarm-proxy client
-// https://github.com/RangerMauve/hyperswarm-proxy#client
-const swarm = new HyperswarmClient({
+// Initialize a proxied bitswarm
+// Also specify any options for bitswarm-proxy client
+// https://github.com/bitwebs/bitswarm-proxy#client
+const swarm = new BitswarmClient({
   // Specify a list of proxy servers available to connect to
 	proxy: ['ws://127.0.0.1:3472']
 })
 
-// Same as with hyperswarm
+// Same as with bitswarm
 swarm.on('connection', (connection, info) => {
 	const stream = getSomeStream(info.topic)
 
 	// Pipe the data somewhere
-	// E.G. hyperdrive.replicate()
+	// E.G. bitdrive.replicate()
 	connection.pipe(stream).pipe(connection)
 })
 

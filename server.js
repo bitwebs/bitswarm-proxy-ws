@@ -1,8 +1,8 @@
-const HyperswarmProxyServer = require('hyperswarm-proxy/server')
+const BitswarmProxyServer = require('@web4/bitswarm-proxy/server')
 const websocket = require('websocket-stream')
 const http = require('http')
 
-class HyperswarmProxyWSServer extends HyperswarmProxyServer {
+class BitswarmProxyWSServer extends BitswarmProxyServer {
   constructor (opts = {}) {
     super(opts)
     const { server } = opts
@@ -30,4 +30,4 @@ class HyperswarmProxyWSServer extends HyperswarmProxyServer {
   }
 }
 
-module.exports = HyperswarmProxyWSServer
+module.exports = BitswarmProxyWSServer
